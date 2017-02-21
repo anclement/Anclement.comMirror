@@ -28,23 +28,22 @@ $(function(){
 		var homeworld= homew.replace("http:", "https:")/// because why do i have to do this?
 		var species= spec.replace("http:", "https:")/// because why do i have to do this?
 
+//
+
+
 //search api code from http://blog.comperiosearch.com/blog/2012/03/14/super-simple-image-search-json-jquery-flickr/
 
-        $.getJSON("https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
+        $.getJSON('https://swapi.co/api/people/'+random+'/?format=json',
         {
-          tags: name,
-          tagmode: "any",
-          format: "json"
+          format: "json",
+          callback: "?"
         },
         function(data) {
-          $.each(data.items, function(i,item){
-            $("<img/>").attr("src", item.media.m).prependTo("#ghapidata");
-            if ( i == 0 ) return false;
-            console.log(item.media.m)
-          });
+
+            console.log(data)
         });
 
-
+//End Api code
 
 
 //This is gonna be messey
@@ -91,6 +90,8 @@ $(function(){
 
   function outputPageContent(outhtml) {
       $('#ghapidata').html(outhtml);
+     // $("<img/>").attr("src", "https://img.lum.dolimg.com/v1/images/starwars_551c43f4.jpeg").prependTo("#ghapidata");
+
       } // end outputPageContent()
         } // end else statement
     }); // end requestJSON Ajax call
