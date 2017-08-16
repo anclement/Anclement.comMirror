@@ -76,7 +76,7 @@ $(function(){
 
 
           films=String(films);
-      var films2 = films.replace("http://swapi.co/api/films/1/", "A New Hope").replace("http://swapi.co/api/films/2/", "The Empire Strikes Back").replace("http://swapi.co/api/films/3/", "Return of the Jedi").replace("http://swapi.co/api/films/4/", "The Phantom Menace").replace("http://swapi.co/api/films/5/", "Attack of the Clones").replace("http://swapi.co/api/films/6/", "Revenge of the Sith").replace("http://swapi.co/api/films/7/", "The Force Awakens").replace("http://swapi.co/api/films/8/", "The Last Jedi");
+      var films2 = films.replace("https://swapi.co/api/films/1/", "A New Hope").replace("https://swapi.co/api/films/2/", "The Empire Strikes Back").replace("https://swapi.co/api/films/3/", "Return of the Jedi").replace("https://swapi.co/api/films/4/", "The Phantom Menace").replace("https://swapi.co/api/films/5/", "Attack of the Clones").replace("https://swapi.co/api/films/6/", "Revenge of the Sith").replace("https://swapi.co/api/films/7/", "The Force Awakens").replace("https://swapi.co/api/films/8/", "The Last Jedi").replace("https://swapi.co/api/films/9/", "Star Wars 9");
 
 
 

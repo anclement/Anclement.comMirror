@@ -1,10 +1,11 @@
 {
   "name": "Andrew Clement Website",
-  "short_name": "ANClement",
+  "short_name": "Andrew Clement",
   "theme_color": "#2196f3",
   "background_color": "#2196f3",
   "display": "minimal-ui",
   "orientation": "portrait",
+  "display": "standalone",
   "Scope": "/",
   "start_url": "/",
   "icons": [
@@ -29,7 +30,7 @@
       "type": "image/png"
     },
     {
-      "src": "images/icons/icon-152x152.png",
+      "src": "WebSiteAsset/Favicons/icon-152x152.png",
       "sizes": "152x152",
       "type": "image/png"
     },

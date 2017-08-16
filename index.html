@@ -1,24 +1,42 @@
+
 <html>
   <head>
-  <!--This changes Android L+ Status Bar-->
+  <!--This changes Android Lollipop Status Bar-->
 	  <meta name="theme-color" content="#3f51b5">
 	  <meta name="description" content="Webpage of Andrew Nicholas Clement from Chattanooga,Tennessee. Currently located in Nashville,Tennessee. Electrical Engineer with professional work experience utilizing strong technical skills in the areas of programming and troubleshooting "> <!--Google Desc-->
-  <!-- Setup and Info Stuff-->
+  <!-- Shortcut Icon-->
 <link rel="shortcut icon" href="/WebSiteAsset/AndrewClement.ico">
-   <!-- Rel=Me-->
+<link rel="manifest" href="/manifest.json">
+<!-- Json-LD-->
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org/",
+  "@type": "Person",
+  "name": "Andrew Clement",
+  "url": "http://www.anclement.com"
+}
+</script>
+   <!--Rel Me -->
 <link rel="me" type="text/html" href="http://www.google.com/profiles/ANClement"/>
 <link rel="me" type="text/html" href="https://plus.google.com/109292527465485349038"/>
 <link rel="me" type="text/html" href="http://www.twitter.com/andrewNclement"/>
 <link rel="me" type="text/html" href="https://www.facebook.com/anclement"/>
 <link rel="me" type="text/html" href="http://www.instagram.com/anclement/"/>
 <link rel="me" type="text/html" href="https://www.linkedin.com/in/anclement"/>
-<link rel="alternate" type="application/rss+xml" title="Andrew Clement's Blog" href="http://blog.anclement.com/rss"/>
 
+<link rel="alternate" type="application/rss+xml" title="Andrew Clement's Blog" href="http://blog.anclement.com/rss"/>
+<!--Normalize-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css.map">
 
     <!-- Material Design Lite -->
-    <script src="https://storage.googleapis.com/code.getmdl.io/1.3.0/material.min.js"></script>
-    <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.3.0/material.indigo-yellow.min.css">
-	<!-- Unofficall Material -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.3.0/material.indigo-yellow.min.css">
+
+
+  <!-- Unofficall Material -->
 	<link href="https://cdn.materialdesignicons.com/1.8.36/css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css" />
 	<!-- My Style Sheet-->
 	<link rel="stylesheet" href="css/styles.css" media="all"  type="text/css" />
@@ -37,7 +55,7 @@
 <!--opengraphprotocal http://opengraphprotocol.org/-->
 	<meta property="og:title" content="Andrew Clement" />
 <meta property="og:url" content="http://www.anclement.com" />
-</meta property="og:image" content="https://scontent-atl3-1.xx.fbcdn.net/hphotos-xpl1/v/t1.0-9/10170997_10201750173665310_4039494303006362083_n.jpg?oh=48ee7491637f7d0579c0ffa0f73508b3&oe=56F815EE" />
+<meta property="og:image" content="/WebSiteAsset/Favicons/icon-512x512.png" />
 <!-- end opengraphprotocal-->
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">
@@ -64,7 +82,42 @@
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
       <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
+
+
+      <!--share-->
+      <script>
+               if ('serviceWorker' in navigator) {
+                 window.addEventListener('load', function() {
+                   navigator.serviceWorker.register('/sw.js').then(function(registration) {
+                     // Registration was successful
+                     console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                   }, function(err) {
+                     // registration failed :(
+                     console.log('ServiceWorker registration failed: ', err);
+                   });
+                 });
+               }
+
+
+
+       if(navigator.share !== undefined) {
+
+         document.addEventListener('DOMContentLoaded', e => {
+           var shareBtn = document.querySelector('div.share a');
+           if(!!shareBtn === false) return;
+           shareBtn.addEventListener('click', clickEvent => {
+             clickEvent.preventDefault();
+             navigator.share({title: document.title, text: window.location.href, url: window.location.href})
+               .then(() => ga('send', 'event', 'share', 'success'),
+                error => ga('send', 'event', 'share', 'error', error));
+           });
+         });
+       }
+       </script>
+       <!--end share function-->
+
   </head>
+  <!--End header-->
  <body>
           <!-- Title -->
           <span class="mdl-layout-title">Andrew Clement</span>
@@ -74,6 +127,7 @@
    		<a href="#welcome" class="mdl-layout__tab is-active">Welcome</a>
 		<a href="#resume" class="mdl-layout__tab" >Resume</a>
 		<a href="#Apps" class="mdl-layout__tab">Projects</a>
+<!--    <a href="#Blog" class="mdl-layout__tab">Blog</a>-->
         <a href="#contact" class="mdl-layout__tab">Contact</a>
 		<a href="#Conferences" class="mdl-layout__tab">Leadership</a>
 		<a href="#about" class="mdl-layout__tab">About Me</a>
@@ -81,12 +135,18 @@
 		 </div>
       </header>
    <div class="mdl-layout__drawer">
-        <span class="mdl-layout-title">Around the Web</span>
+        <span class="mdl-layout-title">Support Me</span>
 
 	   <nav class="mdl-navigation">
-	      <a class="mdl-navigation__link" href="http://www.facebok.com/anclement">Facebook</a>
-	      <a class="mdl-navigation__link" href="http://www.linkedin.com/in/anclement">Linkedin</a>
-	      <a class="mdl-navigation__link" href="http://www.instagram.com/anclement">Instagram</a>
+        <a class="mdl-navigation__link" href="https://www.paypal.me/ANClement" target="_blank">Donate via PayPal</a>
+       <a class="mdl-navigation__link" href="https://venmo.com/AndrewNClement" target="_blank">Donate via Venmo</a>
+       <a class="mdl-navigation__link" href="https://www.lyft.com/invite/ANDREW12673?p=d" target="_blank">Lyft Promo Code</a>
+       <a class="mdl-navigation__link" href="https://www.facebook.com/sharer/sharer.php?u=http%3A//www.anclement.com" target="_blank">Share on Facebook</a>
+       <a class="mdl-navigation__link" href="https://twitter.com/home?status=Check%20out%20Andrew%20Clement%20at%20http%3A//www.anclement.com" target="_blank">Share on Twitter</a>
+
+
+
+
 	    </nav>
     </div>
       <main class="mdl-layout__content">
@@ -95,19 +155,20 @@
 					 <BR><BR><div class="mdl-card mdl-shadow--4dp">
 					  <div class="mdl-card__media">
   <picture>
-  <source srcset="/WebSiteAsset/Profile.webp" width="173"  type="image/webp">
-  <source srcset="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/7/005/067/1d6/246a88b.jpg" width="173" type="image/jpeg">
-  <img src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/7/005/067/1d6/246a88b.jpg" width="173" alt="Profile Picture!">
+  <!--<source srcset="/WebSiteAsset/Profile.webp" width="173"  type="image/webp">-->
+  <source srcset="https://lh3.googleusercontent.com/nS2MglxLTv8JXHw1jy-u8UjGnO6FPIcOpQSRxXUW5CshkhH1w8THsD74555X5E_QTrVkOxF8dYKUisw0NVq8AWeJIHdcyYzB1kb9qjkHVFMHEEb5IFcltSsyf-Q0XS1ychJL7MEySldlMI1jAIvtE9ds3SxhhdLMWgNjiaC50GRFnRu8CmTUkJl_WuiAlTWnpxUJomRo3CZxNt3cN9kFlj37hLBwIHQH3MS6ghkmz1H7SWEQaAhS3RJ27nwbCyVKlCXI5I0fxQS_NRM4Jwr2v8lutuPzkKITa-eJFn5MecZuprIOMrzm7H37up0fd315-_B5aT_OXtt_3qGq8WTj21vCrdkXVNYDjkKwy2yZHP3npQ91Uc-3nK72YNdrZkUkxxdcXyzhK2ao_HB5P1-fjlErzJYxCufqj-b022M_ckM-mJCDH8nCDdIKQQNpNTNzB1VynoPtqkhHfCDiFp06Dl9Gl7Kn1llwXz24kNNj4xPas40gQOy_MmHhp8dhrxbNlGIREBaIqRa3qdK_uMQO-3Yg9Bz1K_aLHVBUXqOrnse8vui1z9B8mi7-_81lFgtGqA10x3D_5LTVfTk36uQwB-wO3zFLhE3BhQ3P4ilVXvi7f7oPJNGW7AGTcQ=w594-h593-no" width="173" type="image/jpeg">
+  <img src="/WebSiteAsset/Profile.jpeg" width="173" alt="Profile Picture!">
 </picture>
 
 				</div>
 
 				<div class="mdl-card__supporting-text">
-					         	<robo>Electrical Engineer with professional work experience utilizing strong technical skills in the areas of programming and troubleshooting.</robo>
+					         	<p>Electrical Engineer with professional work experience utilizing strong technical skills in the areas of programming and troubleshooting. Currently working as a Technical Systems Analyst at IASIS Healthcare.</p>
 
 	            <div class="mdl-card__actions mdl-card--border">
 	           <a href="http://www.linkedin.com/in/anclement" "button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Linkedin</a></button> <a href="mailto:contact@anclement.com" button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Email</a></button>
-				</div>
+           </div>
+
 				</div>
 				</center>
 				<Center><BR><BR>
@@ -120,17 +181,56 @@
 
    		      <BR><BR>
    		      <div class="mdl-card mdl-shadow--4dp">
-					  <div class="mdl-card__media">  </div>
-
-
-					  <div class="mdl-card__supporting-text"/>
+					  <div class="mdl-card__supporting-text"/><p>
 I am currently located in Nashville,TN, moving here from my hometown of Chattanooga, TN.  <BR><CENTER></a><img src=https://lh3.googleusercontent.com/-43MDPS6m7YY/VJtNo_7ZXDI/AAAAAAAA9Ts/X_x5mQ-JbqE/w1203-h902-no/DSCN1514.JPG width=100></a><BR>I received a Bachelor of Science in Electrical Engineering from the University of Tennessee at Chattanooga. I started by  professional career in Chattanooga working in the Power industry, starting work at Tennessee Valley Authority in the Power Quality Division. After gaining some experience in the Power Industry.
 I also like  to dabble in photography and music. I am a passionate hockey fan, cheering for both the Chicago Blackhawks and the Nashville Predators. I have professional experience in customer support and actively seeking new opportunities.
-<BR>	 <img src="/WebSiteAsset/Icons/Preds.png" alt  width=100>
-	              <div class="mdl-card__actions mdl-card--border">
-					  </div>
+<BR>
+
+                   <img src="/WebSiteAsset/Icons/Preds.png" alt  width=100></p>
+
 					</div><!--endothebutton-->
    	</div>
+<BR><BR><BR>
+    <!-- Setup -->
+    <div class="Setup mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__title mdl-card--expand">
+         <div class="mdl-card__media"></p></div>
+        <h2 class="mdl-card__title-text">Current Setup:</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
+
+      <ul>
+        <li>Macbrook Pro 2011</li>
+        <li>Google Chrome</li>
+        <li>Atom Writer</li>
+        <li> Google Firebase</li></ul>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <a href='#' class="mdl-button mdl-button--disabled mdl-js-button mdl-js-ripple-effect">
+          View More on Blog
+        </a><BR>      </div>  </div>  <BR> <BR>
+    <!--End Setup Page-->
+
+    <!-- Working On -->
+    <div class="Working mdl-card mdl-shadow--2dp">
+      <div class="mdl-card__title mdl-card--expand">
+         <div class="mdl-card__media"></p></div>
+        <h2 class="mdl-card__title-text">Working On:</h2>
+      </div>
+      <div class="mdl-card__supporting-text">
+      <ul><li>FreeCodeCamp</li>
+        <li>DDP Yoga</li>
+        <li>Android Programming:The Big Nerd Ranch Guide</li>
+        <li>Front-End Web Development:The Big Nerd Ranch Guide</li>
+      </ul>
+      </div>
+      <div class="mdl-card__actions mdl-card--border">
+        <a href='#' class="mdl-button mdl-button--disabled mdl-js-button mdl-js-ripple-effect">
+          View More on Blog
+        </a><BR>      </div>  </div>  <BR> <BR>
+    <!--End Working onPage-->
+
+
    	<BR><BR><BR><BR>
    		</section>
         <section class="mdl-layout__tab-panel" id="gallery">
@@ -233,8 +333,8 @@ I also like  to dabble in photography and music. I am a passionate hockey fan, c
 		  <Center></a><section class="mdl-layout__tab-panel" id="Conferences">
 
 		  <BR><BR>
-		  <font size=23px  face=Roboto> Leadership Development:</font>
-	<BR><BR>
+		  <h3> Leadership Development</h3>
+
 		<!-- Project Leadershape -->
 <div class="LeaderShape mdl-card mdl-shadow--2dp">
   <div class="mdl-card__title mdl-card--expand">
@@ -244,6 +344,9 @@ I also like  to dabble in photography and music. I am a passionate hockey fan, c
     To transform the world by increasing the number of people who lead with integrity™ and a healthy disregard for the impossible.
   </div>
   <div class="mdl-card__actions mdl-card--border">
+    <a  class="mdl-button mdl-button--disabled mdl-js-button mdl-js-ripple-effect" target="_blank">
+    Read Blog
+    </a>
      <a href='https://www.leadershape.org/' class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" target="_blank">
       View Website
     </a>
@@ -262,6 +365,9 @@ I also like  to dabble in photography and music. I am a passionate hockey fan, c
    FSL is an in-depth weekend retreat devoted to leadership development through learning and application of values within individuals and organizations at UTC. Individuals will gain a foundation for making ethical decisions, an appreciation for their organization's purpose or mission, improved interpersonal and communication skills, and an action plan fostering the growth and health of their organization and fellow members. Through experiential learning and small group discussions, ideally, individuals will also walk away with new relationships and a stronger sense of community.
   </div>
   <div class="mdl-card__actions mdl-card--border">
+    <a class="mdl-button mdl-button--disabled mdl-js-button mdl-js-ripple-effect" target="_blank">
+    Read Blog
+    </a>
      <a href='https://www.utc.edu/dean-students/leadership/index.php' class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" target="_blank">
       View Website
     </a>
@@ -280,6 +386,9 @@ I also like  to dabble in photography and music. I am a passionate hockey fan, c
 The Undergraduate Interfraternity Institute is a leadership experience made for fraternity and sorority members.
   </div>
   <div class="mdl-card__actions mdl-card--border">
+    <a  class="mdl-button mdl-button--disabled mdl-js-button mdl-js-ripple-effect" target="_blank">
+    Read Blog
+    </a>
      <a href='http://nicindy.org/programs/uifi/' class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" target="_blank">
       View Website
     </a>
@@ -308,7 +417,30 @@ The Undergraduate Interfraternity Institute is a leadership experience made for 
 
    		</section>
 
+	<section class="mdl-layout__tab-panel" id="Blog">
+<br>
+<div class=" mdl-card mdl-shadow--2dp">
+<div class="mdl-card__title">
+  <h2 class="mdl-card__title-text">My Blog</h2>
+</div>
+<div class="mdl-card__supporting-text">
+  View my Journey
+</div><BR><BR><BR>
+<div class="mdl-card__actions mdl-card--border">
+  <a href="https://anclement.github.io" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+    View Blog
+  </a>
+</div>
+<div class="mdl-card__menu">
 
+</div>
+</div>
+
+
+
+
+
+  </section>
    		<section class="mdl-layout__tab-panel" id="Apps">
 		 <!-- Accent-colored raised button with ripple -->
 		<center>
@@ -327,7 +459,7 @@ The Undergraduate Interfraternity Institute is a leadership experience made for 
     <a href='Demos/API/API_Demo.html' class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" target="_blank">
       View Web App
     </a>
-    <a href='https://github.com/anclement/anclement.github.io/tree/master/Demos/API' class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" target="_blank">
+    <a href='https://github.com/anclement/anclement.github.ioMirror/tree/master/Demos/API' class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" target="_blank">
       View Source
     </a>
 
@@ -354,7 +486,7 @@ The Undergraduate Interfraternity Institute is a leadership experience made for 
     <a href='Demos/StarWars/StarWars.html' class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" target="_blank">
       View Web App
     </a>
-       <a href='https://github.com/anclement/anclement.github.io/tree/master/Demos/StarWars' class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" target="_blank">
+       <a href='https://github.com/anclement/anclement.github.ioMirror/tree/master/Demos/StarWars' class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" target="_blank">
       View Source
     </a>
      <BR>
